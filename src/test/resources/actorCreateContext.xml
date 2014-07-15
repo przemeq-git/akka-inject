@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="actorSystemProvider" class="akka.support.inject.spring.SpringActorSystemProvider"/>
+
+    <bean id="system" factory-bean="actorSystemProvider" factory-method="createActorSystem" destroy-method="shutdown">
+        <constructor-arg value="testName"/>
+    </bean>
+
+    <bean id="byNameActor" class="akka.support.inject.ByNameActor" scope="prototype">
+        <constructor-arg value="byNameActor"/>
+    </bean>
+
+    <bean id="byTypeActor" class="akka.support.inject.ByTypeActor" scope="prototype">
+        <constructor-arg value="byTypeActor"/>
+    </bean>
+
+</beans>
