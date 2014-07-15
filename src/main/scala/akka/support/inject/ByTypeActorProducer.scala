@@ -5,7 +5,7 @@ import akka.actor.{Actor, IndirectActorProducer}
 /**
  * @author Przemyslaw Dadel
  */
-private [inject] class ByTypeSpringActorProducer[T <: Actor](injector: Injector, clazz: Class[T]) extends IndirectActorProducer {
+private [inject] class ByTypeActorProducer[T <: Actor](injector: Injector, clazz: Class[T]) extends IndirectActorProducer {
 
   override def actorClass: Class[T] = clazz
 

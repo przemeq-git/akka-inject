@@ -14,9 +14,9 @@ class DiExtensionImpl extends Extension {
     this.injector = injector
   }
 
-  def createProps(beanName: String) = Props(classOf[ByNameSpringActorProducer], injector, beanName)
+  def createProps(beanName: String) = Props(classOf[ByNameActorProducer], injector, beanName)
 
-  def createProps[T <: Actor](clazz: Class[T]) = Props(classOf[ByTypeSpringActorProducer[T]], injector, clazz)
+  def createProps[T <: Actor](clazz: Class[T]) = Props(classOf[ByTypeActorProducer[T]], injector, clazz)
 
 
 }
