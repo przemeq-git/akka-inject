@@ -10,8 +10,15 @@ import org.springframework.context.ApplicationContext
  */
 object SpringSupport {
 
+  /**
+   * Registers SpringInjector with DiExtension for the provided ActorSystem.
+   * @param system
+   * @param context
+   * @return
+   */
   def register(system: ActorSystem, context: ApplicationContext): ActorSystem = {
-    DiExtension(system).setInjector(new SpringInjector(context))
+    val injector = new SpringInjector(context)
+    DiExtension(system).withInjector(injector)
     system
   }
 

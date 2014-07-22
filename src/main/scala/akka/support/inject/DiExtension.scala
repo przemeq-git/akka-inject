@@ -10,7 +10,7 @@ class DiExtensionImpl extends Extension {
   @volatile
   private var injector: Injector = _
 
-  def setInjector(injector: Injector) {
+  def withInjector(injector: Injector) {
     this.injector = injector
   }
 
